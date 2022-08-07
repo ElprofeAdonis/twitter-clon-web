@@ -1,5 +1,5 @@
 import React from "react";
-// import "./Sidebar.css";
+import "./Sidebar.css";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import SidebarOption from "./SidebarOption";
 import HomeIcon from "@mui/icons-material/Home";
@@ -11,13 +11,14 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Button } from "@mui/material";
 
-function Sidebar() {
+const Sidebar = () => {
   return (
     <div className="sidebar">
-      <TwitterIcon />
+      <TwitterIcon className="sidebar__twitterIcon" />
 
-      <SidebarOption Icon={HomeIcon} text="Home" />
+      <SidebarOption active Icon={HomeIcon} text="Home" />
       <SidebarOption Icon={SearchIcon} text="Explore" />
       <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />
       <SidebarOption Icon={MailOutlineIcon} text="Messages" />
@@ -27,11 +28,11 @@ function Sidebar() {
       <SidebarOption Icon={MoreHorizIcon} text="More" />
 
       {/* Button -> Tweet */}
-      {/* <Button variant="outlined" className="sidebar__tweet" fullWidth>
+      <Button variant="outlined" className="sidebar__tweet" fullWidth>
         Tweet
-      </Button> */}
+      </Button>
     </div>
   );
-}
+};
 
 export default Sidebar;

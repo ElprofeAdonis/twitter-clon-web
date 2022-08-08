@@ -14,7 +14,6 @@ const Estudiantes = () => {
       const data = await res.json();
       setMostrarDato(data.data);
       setInfoApi(data.payload);
-      console.log(data);
     } catch (error) {
       console.log("Hola creo que funciono" + error);
     } finally {

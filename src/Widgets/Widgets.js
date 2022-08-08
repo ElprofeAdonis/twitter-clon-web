@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Widgets.css";
 import {
   TwitterTimelineEmbed,
@@ -13,6 +13,7 @@ import Modal from "@mui/material/Modal";
 
 import axios from "axios";
 import { Avatar } from "@mui/material";
+import MostrarUsuarios from "./MostrarUsuarios";
 
 const style = {
   position: "absolute",
@@ -33,12 +34,16 @@ const Widgets = () => {
   const [postwitter, setPostwitter] = React.useState(null);
   const [infoApi, setInfoApi] = React.useState([]);
 
+  const [mostrarUsuario, setMostrarUsuario] = React.useState(null);
+  const [usuApi, setUsuApi] = React.useState([]);
+
   const [email, setEmail] = React.useState("");
   const [nombre, setNombre] = React.useState("");
   const [apellido, setApellido] = React.useState("");
   const [edad, setEdad] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [foto, setFoto] = React.useState("");
+  // crea los usuarios
   const fetchPostTweet = async () => {
     try {
       const res = await axios.post("http://localhost:8000/crear_usuario", {
@@ -76,14 +81,23 @@ const Widgets = () => {
 
       <div className="widgets__widgetContainer">
         <h2>What's happening</h2>
-        <Button style={{ float: "right", alignItems: "center" }}>Login</Button>
-        {/* Crear usuarios */}
-        <Button
-          onClick={handleOpen}
-          style={{ float: "left", alignItems: "center" }}
-        >
-          Sign Up
-        </Button>
+        <div>
+          <div>
+            <Button style={{ float: "right", alignItems: "center" }}>
+              Login
+            </Button>
+          </div>
+
+          {/* Crear usuarios  aca empieza*/}
+          <div>
+            <Button
+              onClick={handleOpen}
+              style={{ float: "left", alignItems: "center" }}
+            >
+              Sign Up
+            </Button>
+          </div>
+        </div>
         <Modal
           open={open}
           onClose={handleClose}
@@ -176,16 +190,25 @@ const Widgets = () => {
                 className="tweetBox__imageInput"
                 placeholder="Optional: Enter image URL"
               />
+              <br />
               <Button
+                variant="contained"
+                disableElevation
                 onClick={fetchPostTweet}
                 type="submit"
-                className="tweetBox__tweetButton"
               >
-                Tweet
+                Create user
               </Button>
             </form>
           </Box>
         </Modal>
+
+        {/* Termina lo de Sign Up */}
+
+        <di>
+          {" "}
+          <MostrarUsuarios />
+        </di>
 
         <TwitterTweetEmbed tweetId={"1547348604125331456"} />
         <TwitterTweetEmbed tweetId={"1547079301429956608"} />
@@ -193,7 +216,7 @@ const Widgets = () => {
 
         <TwitterTimelineEmbed
           sourceType="profile"
-          screenName="cleverqazi"
+          screenName="ado_aleman"
           options={{ height: 400 }}
         />
 

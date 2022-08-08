@@ -1,0 +1,12 @@
+.post_form {
+  display: flex;
+  margin-top: 20px;
+}
+.post_input {
+  color: cornsilk;
+  flex: 0.6;
+  background-color: #e6ecf0;
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 24px;
+}

@@ -89,7 +89,7 @@ const Widgets = () => {
           </div>
 
           {/* Crear usuarios  aca empieza*/}
-          <div>
+          <div className="app_siginForm">
             <Button
               onClick={handleOpen}
               style={{ float: "left", alignItems: "center" }}
